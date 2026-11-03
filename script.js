@@ -2,10 +2,10 @@
    PLATINUM GULF GENERAL TRADING — script.js
    ---------------------------------------------------------
    QUICK EDIT GUIDE:
-   • Change WhatsApp number            → CONFIG.whatsappNumber (line 13)
+   • Change WhatsApp number             → CONFIG.whatsappNumber (line 13)
    • Link real Company Profile PDF     → CONFIG.companyProfileUrl (line 14)
    • Link real Product Datasheet PDFs  → CONFIG.datasheetBaseUrl (line 15)
-                                          + filenames in CONFIG.datasheets
+                                        + filenames in CONFIG.datasheets
    • Change RFQ form validation rules  → validators object (line ~75)
    • Send RFQ data to your backend     → search for "isValid" inside form submit handler
    ========================================================= */
@@ -17,15 +17,15 @@
      1. CONFIG — change these values to plug in real assets
      ========================================================= */
   const CONFIG = {
-    whatsappNumber: '971508844588',                          // WhatsApp number (digits only, with country code)
-    companyProfileUrl: '#',                                  // TODO: replace with 'assets/company-profile.pdf'
-    datasheetBaseUrl: '#',                                   // TODO: replace with 'assets/datasheets/'
-    datasheets: {                                            // TODO: each product's PDF filename
+    whatsappNumber: '971508844588',                       // WhatsApp number (digits only, with country code)
+    companyProfileUrl: '#',                                // TODO: replace with 'assets/company-profile.pdf'
+    datasheetBaseUrl: 'Product-Catalog-pdf-files/',          // Folder containing your PDF file structure
+    datasheets: {                                          // TODO: each product's PDF filename
       'aggregates-crushed-stones': 'aggregates-crushed-stones-datasheet.pdf',
       'gravel-boulders': 'gravel-boulders-datasheet.pdf',
       'limestone': 'limestone-datasheet.pdf',
       'calcium-carbonate': 'calcium-carbonate-datasheet.pdf',
-      'building-materials': 'building-materials-datasheet.pdf'
+      'building-materials': 'Outdoor and Urban Solutions Catalog.pdf'
     }
   };
 
@@ -118,7 +118,7 @@
 
   /* =========================================================
      6. SCROLL-SPY — highlight the nav link of the section
-        currently in view (uses IntersectionObserver)
+         currently in view (uses IntersectionObserver)
      ========================================================= */
   function initScrollSpy() {
     const sections = document.querySelectorAll('main section[id]');
@@ -148,132 +148,136 @@
   /* =========================================================
      7. RFQ FORM — validation + WhatsApp direct submission
    ========================================================= */
-  function initRfqForm() {
-    const form = document.getElementById('rfqForm');
-    if (!form) return;
-    const successMsg = document.getElementById('formSuccess');
+function initRfqForm() {
+  const form = document.getElementById('rfqForm');
+  if (!form) return;
+  const successMsg = document.getElementById('formSuccess');
 
-    // VALIDATION RULES — edit these to change what's accepted
-    const validators = {
-      material:  (v) => v ? '' : 'Please select a material.',
-      quantity:  (v) => {
-        if (!v) return 'Please enter a quantity.';
-        if (parseFloat(v) <= 0 || isNaN(parseFloat(v))) return 'Quantity must be greater than 0.';
-        return '';
-      },
-      location:  (v) => v ? '' : 'Please select a delivery location.',
-      name:      (v) => v.trim().length >= 2 ? '' : 'Please enter your name.',
-      email:     (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email.',
-      phone:     (v) => {
-        const cleaned = v.replace(/[\s\-()+]/g, '');   // strip spaces, dashes, parens
-        return /^[0-9]{7,15}$/.test(cleaned) ? '' : 'Please enter a valid phone number.';
+  // VALIDATION RULES — edit these to change what's accepted
+  const validators = {
+    material:  (v) => v ? '' : 'Please select a material.',
+    quantity:  (v) => {
+      if (!v) return 'Please enter a quantity.';
+      if (parseFloat(v) <= 0 || isNaN(parseFloat(v))) return 'Quantity must be greater than 0.';
+      return '';
+    },
+    location:  (v) => v ? '' : 'Please select a delivery location.',
+    name:      (v) => v.trim().length >= 2 ? '' : 'Please enter your name.',
+    email:     (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email.',
+    phone:     (v) => {
+      const cleaned = v.replace(/[\s\-()+]/g, '');   // strip spaces, dashes, parens
+      return /^[0-9]{7,15}$/.test(cleaned) ? '' : 'Please enter a valid phone number.';
+    }
+  };
+
+  // Helper: show/clear error message for one field
+  const showError = (field, msg) => {
+    const input = form.querySelector(`#${field}`);
+    const errEl = form.querySelector(`[data-error-for="${field}"]`);
+    if (input) input.classList.toggle('invalid', !!msg);
+    if (errEl) errEl.textContent = msg;
+  };
+
+  // LIVE VALIDATION — validate on blur (when user leaves a field)
+  Object.keys(validators).forEach(field => {
+    const input = form.querySelector(`#${field}`);
+    if (!input) return;
+    input.addEventListener('blur', () => {
+      showError(field, validators[field](input.value));
+    });
+    input.addEventListener('input', () => {
+      if (input.classList.contains('invalid')) {
+        showError(field, validators[field](input.value));
       }
-    };
+    });
+  });
 
-    // Helper: show/clear error message for one field
-    const showError = (field, msg) => {
-      const input = form.querySelector(`#${field}`);
-      const errEl = form.querySelector(`[data-error-for="${field}"]`);
-      if (input) input.classList.toggle('invalid', !!msg);
-      if (errEl) errEl.textContent = msg;
-    };
+  // FORM SUBMIT
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
 
-    // LIVE VALIDATION — validate on blur (when user leaves a field)
+    // Validate every field; if any fails, mark invalid
     Object.keys(validators).forEach(field => {
       const input = form.querySelector(`#${field}`);
       if (!input) return;
-      input.addEventListener('blur', () => {
-        showError(field, validators[field](input.value));
-      });
-      // Re-validate on input only if field was already invalid
-      input.addEventListener('input', () => {
-        if (input.classList.contains('invalid')) {
-          showError(field, validators[field](input.value));
-        }
-      });
+      const msg = validators[field](input.value);
+      showError(field, msg);
+      if (msg) isValid = false;
     });
 
-    // FORM SUBMIT
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let isValid = true;
-
-      // Validate every field; if any fails, mark invalid
-      Object.keys(validators).forEach(field => {
-        const input = form.querySelector(`#${field}`);
-        if (!input) return;
-        const msg = validators[field](input.value);
-        showError(field, msg);
-        if (msg) isValid = false;
-      });
-
-      if (!isValid) {
-        // Scroll user to first error and focus it
-        const firstInvalid = form.querySelector('.invalid');
-        if (firstInvalid) firstInvalid.focus();
-        if (successMsg) {
-          successMsg.textContent = 'Please correct the highlighted fields and try again.';
-          successMsg.style.color = 'var(--color-error)';
-        }
-        return;
+    if (!isValid) {
+      const firstInvalid = form.querySelector('.invalid');
+      if (firstInvalid) firstInvalid.focus();
+      if (successMsg) {
+        successMsg.textContent = 'Please correct the highlighted fields and try again.';
+        successMsg.style.color = 'var(--color-error)';
       }
+      return;
+    }
 
-      // Capture structured values from form fields
-      const data = {
-        material: form.material.options[form.material.selectedIndex].text,
-        quantity: form.quantity.value,
-        location: form.location.options[form.location.selectedIndex].text,
-        notes:    form.notes.value.trim() || 'None',
-        name:     form.name.value.trim(),
-        company:  form.company.value.trim() || 'N/A',
-        email:    form.email.value.trim(),
-        phone:    form.phone.value.trim()
-      };
+    // Capture structured values from form fields
+    const data = {
+      material: form.material.options[form.material.selectedIndex].text,
+      quantity: form.quantity.value,
+      location: form.location.options[form.location.selectedIndex].text,
+      notes:    form.notes.value.trim() || 'None',
+      name:     form.name.value.trim(),
+      company:  form.company.value.trim() || 'N/A',
+      email:    form.email.value.trim(),
+      phone:    form.phone.value.trim()
+    };
 
-      // Build a clean, structured, and professional message layout for WhatsApp
-      const waText = 
-        `📦 *NEW REQUEST FOR QUOTATION (RFQ)*\n` +
-        `-----------------------------------\n` +
-        `*Material Required:* ${data.material}\n` +
-        `*Quantity / Volume:* ${data.quantity} metric tons\n` +
-        `*Delivery Location:* ${data.location}\n` +
-        `*Additional Notes:* ${data.notes}\n\n` +
-        `👤 *CONTACT DETAILS*\n` +
-        `*Name:* ${data.name}\n` +
-        `*Company:* ${data.company}\n` +
-        `*Email:* ${data.email}\n` +
-        `*Phone / WhatsApp:* ${data.phone}\n` +
-        `-----------------------------------`;
+   // Build the clean, ordered message layout with explicit new lines
+    const waText = 
+      "NEW REQUEST FOR QUOTATION (RFQ)\n" +
+      "-----------------------------------\n" +
+      "Material Required: " + data.material + ".\n" +
+      "Quantity / Volume: " + data.quantity + " metric tons\n" +
+      "Delivery Location: " + data.location + "\n" +
+      "Additional Notes: " + data.notes + "\n" +
+      "Name: " + data.name + "\n" +
+      "Company: " + data.company + "\n" +
+      "Email: " + data.email + "\n" +
+      "Phone / WhatsApp: " + data.phone + "\n" +
+      "-----------------------------------";
 
-      // Target WhatsApp phone number specified
-      const whatsappNumber = '971508844588';
-      const waLink = `https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(waText);
+    // Target WhatsApp phone number requested: +971508844588
+    const whatsappNumber = '971508844588';
+    const waLink = `https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(waText);
 
-      // Open WhatsApp IMMEDIATELY inside the user-triggered event call stack (avoids popup blockers)
-      const newWindow = window.open(waLink, '_blank');
+    if (successMsg) {
+      successMsg.textContent = 'Opening WhatsApp with your formatted request...';
+      successMsg.style.color = 'var(--color-success)';
+    }
 
-      // Fallback: If browser pop-up blocker stops window.open, display a clickable link on the page
-      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-        if (successMsg) {
-          successMsg.innerHTML = `Popup blocked! <a href="${waLink}" target="_blank" style="color: var(--color-success); text-decoration: underline;">Click here to open WhatsApp with your RFQ</a>`;
+    // RELIABLE BYPASS METHOD: Create a temporary anchor element and click it programmatically.
+    // This completely prevents browser popup blockers from stopping WhatsApp from opening.
+    const tempAnchor = document.createElement('a');
+    tempAnchor.href = waLink;
+    tempAnchor.target = '_blank';
+    tempAnchor.rel = 'noopener noreferrer';
+    document.body.appendChild(tempAnchor);
+    tempAnchor.click();
+    document.body.removeChild(tempAnchor);
+
+    // Reset form fields
+    form.reset();
+    Object.keys(validators).forEach(f => showError(f, ''));
+
+      // After 800ms, ask if user also wants to send via WhatsApp for instant response
+      setTimeout(() => {
+        if (confirm('Your RFQ is submitted. Would you also like to send the same details via WhatsApp for a faster response?')) {
+          window.open(waLink, '_blank', 'noopener');
         }
-      } else {
-        if (successMsg) {
-          successMsg.textContent = 'Success! Opening WhatsApp chat...';
-          successMsg.style.color = 'var(--color-success)';
-        }
-      }
-
-      // Reset form fields
-      form.reset();
-      Object.keys(validators).forEach(f => showError(f, ''));
+      }, 800);
     });
   }
 
   /* =========================================================
      8. DOWNLOAD COMPANY PROFILE
-        Triggers when user clicks "Download Company Profile"
-        in the Supply Network section OR in the footer.
+         Triggers when user clicks "Download Company Profile"
+         in the Supply Network section OR in the footer.
      ========================================================= */
   function initDownloadProfile() {
     const btns = [
@@ -285,10 +289,8 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         if (CONFIG.companyProfileUrl && CONFIG.companyProfileUrl !== '#') {
-          // Real PDF is configured → open it in a new tab
           window.open(CONFIG.companyProfileUrl, '_blank', 'noopener');
         } else {
-          // No PDF yet → show helpful instruction
           alert(
             'Company Profile PDF will be added here.\n\n' +
             'Drop your file at /assets/company-profile.pdf ' +
@@ -299,66 +301,34 @@
     });
   }
 
-/* =========================================================
-   CONFIG OBJECT SETUP
-   ========================================================= */
-const CONFIG = {
-  // Folder containing your PDF file structure
-  datasheetBaseUrl: 'Product-Catalog-pdf-files/',
-  
-  datasheets: {
-    // Maps HTML data-product="building-materials" to your catalog PDF
-    'building-materials': 'Outdoor and Urban Solutions Catalog.pdf'
-  }
-};
+  /* =========================================================
+     9. PRODUCT DATASHEETS
+         Each "Download Datasheet" link in the products grid.
+     ========================================================= */
+  function initDatasheets() {
+    const links = document.querySelectorAll('.product-datasheet');
+    
+    if (links.length === 0) return;
 
-
-/* =========================================================
-   9. PRODUCT DATASHEETS
-        Each "Download Datasheet" link in the products grid.
-   ========================================================= */
-function initDatasheets() {
-  const links = document.querySelectorAll('.product-datasheet');
-  
-  // Safety check to ensure links exist on the page before adding listeners
-  if (links.length === 0) return;
-
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      // Prevent default anchor jump (moving to top of page via href="#")
-      e.preventDefault();
-      
-      const product = link.getAttribute('data-product');          // e.g. "building-materials"
-      const filename = CONFIG.datasheets[product];                // e.g. "Outdoor and Urban Solutions Catalog.pdf"
-      
-      if (filename && CONFIG.datasheetBaseUrl && CONFIG.datasheetBaseUrl !== '#') {
-        // Encode URI to safely handle spaces in folder or file names and open in new tab
-        const fullUrl = encodeURI(CONFIG.datasheetBaseUrl + filename);
-        window.open(fullUrl, '_blank', 'noopener');
-      } else {
-        // Fallback alert if configuration is missing
-        alert(
-          `Datasheet for "${product ? product.replace(/-/g, ' ') : 'product'}" will be added here.\n\n` +
-          `Check your CONFIG.datasheetBaseUrl and file mapping.`
-        );
-      }
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const product = link.getAttribute('data-product');           // e.g. "building-materials"
+        const filename = CONFIG.datasheets[product];                // e.g. PDF filename from map
+        
+        if (filename && CONFIG.datasheetBaseUrl && CONFIG.datasheetBaseUrl !== '#') {
+          const fullUrl = encodeURI(CONFIG.datasheetBaseUrl + filename);
+          window.open(fullUrl, '_blank', 'noopener');
+        } else {
+          alert(
+            `Datasheet for "${product ? product.replace(/-/g, ' ') : 'product'}" will be added here.\n\n` +
+            `Check your CONFIG.datasheetBaseUrl and file mapping.`
+          );
+        }
+      });
     });
-  });
-}
-
-// =========================================================
-// AUTO INITIALIZATION: Run initDatasheets when the page loads
-// =========================================================
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initDatasheets);
-} else {
-  initDatasheets();
-}
-
-
-  
-
-
+  }
 
   /* =========================================================
      10. PRIVACY POLICY — placeholder until you publish
