@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+  PLATINUM GULF GENERAL TRADING — index.html
+  -------------------------------------------------------------------
+  QUICK EDIT GUIDE:
+  • Change company name      → search for "PLATINUM GULF"
+  • Change phone/WhatsApp    → search for "971508844588" (appears in 2 places: header nav + floating button)
+  • Change email             → search for "info@platinumgulfinvst.com"
+  • Change slogan            → search for "Reliable Materials"
+  • Change hero heading      → search for "<h1>Reliable Materials"
+  • Change SEO title/desc    → lines inside <head> (title + meta tags)
+=====================================================================
+-->
+<html lang="en">
+<head>
+  <!-- ====== BASIC DOCUMENT SETTINGS ====== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- responsive on mobile -->
+  <meta name="theme-color" content="#0f1115" /> <!-- browser bar color on mobile -->
+
+  <!-- ====== SEO META TAGS (edit these for Google search results) ====== -->
+  <title>Platinum Gulf General Trading | Construction Materials, Aggregates & Quarry Products Supplier UAE</title>
+  <meta name="description" content="Platinum Gulf General Trading — Reliable Materials. Competitive Prices. Dependable Supply. B2B supplier of aggregates, crushed stone, gravel, limestone, calcium carbonate and building materials across the UAE. Direct partnership with Al Azzani Crusher." />
+  <meta name="keywords" content="aggregates supplier UAE, crushed stone Al Ain, gravel supplier Abu Dhabi, limestone UAE, calcium carbonate supplier, quarry products, construction materials trading, Al Azzani Crusher, Platinum Gulf" />
+  <meta name="robots" content="index, follow" /> <!-- tells Google to index this page -->
+
+  <!-- ====== SOCIAL MEDIA PREVIEW (when shared on WhatsApp/Facebook/LinkedIn) ====== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Platinum Gulf General Trading | Construction Materials & Quarry Products" />
+  <meta property="og:description" content="Reliable Materials. Competitive Prices. Dependable Supply. Direct quarry sourcing across the UAE." />
+  <meta property="og:url" content="https://www.platinumgulfinvst.com" />
+
+  <!-- ====== GOOGLE FONT (Inter) — to change font, replace this link + update --font-sans in style.css ====== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ====== LINK TO STYLESHEET ====== -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ====== FAVICON (the tiny icon shown in browser tab) — currently an orange square placeholder ====== -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f1115'/%3E%3Crect x='20' y='20' width='60' height='60' fill='%23FF7A00'/%3E%3C/svg%3E" />
+
+  <!-- ====== STRUCTURED DATA for Google (helps you show up richer in search results) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Platinum Gulf General Trading",
+    "url": "https://www.platinumgulfinvst.com",
+    "telephone": "+971508844588",
+    "email": "info@platinumgulfinvst.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Al Ain",
+      "addressRegion": "Abu Dhabi",
+      "addressCountry": "AE",
+      "postalCode": "17740"
+    },
+    "description": "B2B supplier of construction materials, aggregates, quarry products and industrial raw materials across the UAE."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- =================================================================
+       HEADER  —  the fixed top navigation bar
+       (logo on left, links in middle, "Request a Quote" button on right)
+       ================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <!-- LOGO — replace the inline SVG with <img src="logo.png" /> if you have a real logo -->
+      <a href="#home" class="logo" aria-label="Platinum Gulf General Trading — Home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40">
+            <rect x="2" y="2" width="44" height="44" rx="6" fill="#0f1115"/>
+            <path d="M14 34 L24 12 L34 34 Z" fill="#FF7A00"/>
+            <rect x="20" y="26" width="8" height="8" fill="#ffffff"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <strong>PLATINUM GULF</strong>
+          <small>General Trading</small>
+        </span>
+      </a>
+
+      <!-- NAVIGATION — add/remove links here, must match the section IDs below -->
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+        <button class="nav-close" id="navClose" aria-label="Close menu">&times;</button>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#supply-network" class="nav-link">Supply Network</a></li>
+          <li><a href="#industries" class="nav-link">Industries</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#rfq" class="btn btn-primary nav-cta">Request a Quote</a>
+      </nav>
+
+      <!-- HAMBURGER BUTTON (mobile only — shows on screens ≤ 768px) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="mainNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =================================================================
+         HERO SECTION  —  the big top banner with slogan
+         ================================================================= -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow">UAE &middot; Industrial Materials Trading</span>
+          <!-- HERO HEADLINE — this is your main slogan. Edit text here. -->
+          <h1>Reliable Materials.<br />Competitive Prices.<br /><span class="accent">Dependable Supply.</span></h1>
+          <p class="hero-lead">
+           Platinum Gulf General Trading is a trusted supplier of construction materials,
+            quarry products, and industrial raw materials across the UAE.
+             With ownership of Al Azzani Crusher and Al Buraimi Stones LLC,
+              strategically located in Al Buraimi, Oman, along the UAE border,
+               we benefit from direct access to our own quarry operations.
+                In addition, we maintain strong partnerships with several established crushers across Oman,
+                 enabling us to offer competitive quarry-direct pricing, consistent quality control, a reliable supply chain,
+            and the capacity to meet the demands of projects of all sizes.
+          </p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-ghost">Explore Products</a>
+            <a href="#rfq" class="btn btn-primary">Request a Quote</a>
+          </div>
+          <!-- HERO STATS — quick credibility numbers (years, categories, sourcing) -->
+          <ul class="hero-stats" aria-label="Company at a glance">
+            <li><strong>14+</strong><span>Years of Experience</span></li>
+            <li><strong>5</strong><span>Material Categories</span></li>
+            <li><strong>Direct</strong><span>Quarry Sourcing</span></li>
+          </ul>
+        </div>
+        <!-- HERO IMAGE — currently a CSS gradient placeholder. To use a real photo, see style.css → .hero-media-frame -->
+        <div class="hero-media" role="img" aria-label="Industrial quarry and crushed aggregate stockpile at sunset">
+          <div class="hero-media-frame"></div>
+          <div class="hero-media-badge">
+            <span>Direct Partner</span>
+            <strong>Al Azzani crusher Al Buraimi stones LLC</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         TRUST BAR  —  4 dark cards highlighting why customers choose you
+         ================================================================= -->
+    <section class="trust-bar" aria-label="Why choose Platinum Gulf">
+      <div class="container trust-grid">
+
+        <!-- CARD 1 -->
+        <article class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 17.3 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg>
+          </div>
+          <div>
+            <h3>14+ Years of Experience</h3>
+            <p>More than a decade supplying materials to contractors, developers and industrial buyers across the Emirates.</p>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M3 6h18v3H3zm0 5h18v3H3zm0 5h18v3H3z"/></svg>
+          </div>
+          <div>
+            <h3>Direct Quarry Sourcing</h3>
+            <p>Strategic partnership with Al Azzani Crusher and Al Buraimi Stones LLC eliminates middleman margins — giving you competitive, transparent pricing.</p>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2l9 4v6c0 5-3.8 9.7-9 11C6.8 21.7 3 17 3 12V6z"/></svg>
+          </div>
+          <div>
+            <h3>Dependable Supply Network</h3>
+            <p>Coordinated logistics and stock management keep your projects moving — on spec, on volume, on schedule.</p>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M3 13h2v8H3zm4-4h2v12H7zm4-4h2v16h-2zm4 8h2v8h-2zm4-6h2v14h-2z"/></svg>
+          </div>
+          <div>
+            <h3>Technical Datasheets</h3>
+            <p>Engineers and procurement teams get downloadable specifications for every material grade we supply.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+   <!-- =================================================================
+        PRODUCTS CATALOG  —  5 product cards + 1 CTA card
+        To add a 6th product: copy any <article class="product-card">…</article>
+        block and change the text + data-variant number
+        ================================================================= -->
+    <section class="section" id="products" aria-labelledby="products-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Products Catalog</span>
+          <h2 id="products-heading">Materials Built for Engineering-Grade Performance</h2>
+          <p class="section-lead">
+             From aggregates and crushed stone to limestone, calcium carbonate, gypsum,
+              and a wide range of other construction and industrial raw materials,
+              our product portfolio caters to diverse project and industry requirements.
+               We offer a comprehensive selection of materials, including but not limited to the products listed,
+               backed by quarry-direct sourcing,
+            consistent quality control, and technical documentation where applicable.
+          </p>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- PRODUCT 1: Aggregates -->
+          <article class="product-card">
+            <div class="product-thumb" data-variant="1" role="img" aria-label="Crushed aggregate stones of various sizes"></div>
+            <div class="product-body">
+              <span class="product-tag">Aggregates</span>
+              <h3>Aggregates &amp; Crushed Stones</h3>
+              <p>Multiple sizes and grades for concrete, road base and infrastructure applications. Washed and unwashed options available.</p>
+              <ul class="product-specs">
+                <li>*Grades:* 0–5mm, 5–10mm, 10–20mm, 20–40mm, subbase, road base, and oversized aggregates,
+                    including large rocks, boulders, riprap, and armour stones for road construction,
+                     lakes, landscaping, shoreline protection, erosion control,
+                    and infrastructure projects.</li>
+                <li>Compliance: UAE municipal &amp; DOT specs</li>
+              </ul>
+              <!-- DATASHEET LINK — wire up real PDF in script.js → CONFIG.datasheets -->
+              <a href="#" class="product-datasheet" data-product="aggregates-crushed-stones">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg>
+                Product Catalogue
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCT 2: Gravel & Boulders -->
+          <article class="product-card">
+            <div class="product-thumb" data-variant="2" role="img" aria-label="Gravel and boulders stockpile"></div>
+            <div class="product-body">
+              <span class="product-tag">Civil Engineering</span>
+              <h3>Gravel &amp; Boulders</h3>
+              <p>Construction-grade and decorative gravel, available in white, beige, red, brown, pea gravel, and various other colors and sizes, including oversized boulders.</p>
+              <ul class="product-specs">
+                <li>Sizes: Pea gravel, 5mm–40mm, and oversized boulders.</li>
+                <li>Applications:Landscaping, lakes, drainage, gabions, retaining walls, erosion control, and marine works.</li>
+              </ul>
+              <a href="#" class="product-datasheet" data-product="gravel-boulders">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg>
+                Product Catalogue
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCT 3: Limestone -->
+          <article class="product-card">
+            <div class="product-thumb" data-variant="3" role="img" aria-label="Limestone blocks and powder"></div>
+            <div class="product-body">
+              <span class="product-tag">NATURAL STONE SOLUTIONS</span>
+              <h3>Marble & Granite</h3>
+              <p>Supply and installation of premium marble and granite for residential, commercial, and architectural projects. Available in a wide range of colors, patterns, and finishes.</p>
+              <ul class="product-specs">
+                <li>Products: Marble, granite, slabs, tiles & custom sizes.</li>
+                <li>Applications: Flooring, wall cladding, countertops, staircases & decorative finishes</li>
+                <li>Services: Supply & installation</li>
+              </ul>
+              <a href="#" class="product-datasheet" data-product="limestone">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg>
+                Product Catalogue
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCT 4: Calcium Carbonate -->
+          <article class="product-card">
+            <div class="product-thumb" data-variant="4" role="img" aria-label="Calcium carbonate raw powder"></div>
+            <div class="product-body">
+              <span class="product-tag">RECREATION & SPORTS</span>
+              <h3>Playground Equipment & Sports Flooring</h3>
+              <p>Supply and installation of playground equipment, sports flooring, and indoor and outdoor recreational solutions for schools, parks, clubs, residential communities, and commercial projects.</p>
+              <ul class="product-specs">
+                <li>Products: Playground equipment, sports flooring & recreational accessories.</li>
+                <li>Applications: Indoor & outdoor play areas, courts, gyms, parks & community spaces.</li>
+                <li>Services: Supply & installation</li>
+              </ul>
+              <a href="#" class="product-datasheet" data-product="calcium-carbonate">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg>
+                Product Catalogue
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCT 5: Building Materials (Outdoor & Urban Solutions Catalog) -->
+          <article class="product-card">
+            <div class="product-thumb" data-variant="5" role="img" aria-label="General building materials"></div>
+            <div class="product-body">
+              <span class="product-tag">OUTDOOR & URBAN SOLUTIONS</span>
+              <h3>Park Furniture & Street Amenities</h3>
+              <p>Supply and installation of durable outdoor furniture and urban amenities for public parks, gardens, walkways, residential communities, and commercial developments.</p>
+              <ul class="product-specs">
+                <li>Products: Park benches, picnic tables, waste bins, bollards, planters, bicycle racks, pergolas, shade structures & more.</li>
+                <li>Applications: Parks, gardens, streetscapes, waterfronts & public spaces.</li>
+                <li>Services: Supply & installation.</li>
+              </ul>
+              <a href="Product-Catalog-pdf-files/Outdoor and Urban Solutions Catalog.pdf" class="product-datasheet" data-product="building-materials" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg>
+  Product Catalogue
+</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+          <!-- CTA CARD (dark, invites custom quote) -->
+          <article class="product-card product-card-cta">
+            <div class="product-body">
+              <h3>Need a Custom Specification?</h3>
+              <p>Our team can source and deliver custom material grades, special volumes and project-specific requirements. Send us your spec sheet today.</p>
+              <a href="#rfq" class="btn btn-primary">Request a Quote</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SUPPLY NETWORK / ABOUT US  —  two-column section with image + text
+         ================================================================= -->
+    <section class="section section-alt" id="supply-network" aria-labelledby="supply-heading">
+      <div class="container two-col">
+        <!-- LEFT: image placeholder with experience badge -->
+        <div class="two-col-media" role="img" aria-label="Quarry crushing plant operation">
+          <div class="supply-media-frame"></div>
+          <div class="experience-badge">
+            <strong>14<span>+</span></strong>
+            <span>Years in the Field</span>
+          </div>
+        </div>
+        <!-- RIGHT: text content -->
+        <div class="two-col-content">
+          <span class="eyebrow">Supply Network &amp; About Us</span>
+          <h2 id="supply-heading">Quarry-Direct Supply That Outcompetes Middleman Traders</h2>
+          <p>
+            For over a decade, Platinum Gulf General Trading has built a logistics and sourcing network
+            that connects contractors directly to quarry output — bypassing multiple layers of traders
+            that inflate prices and dilute accountability.
+          </p>
+          <p>
+            Our strategic partnership with <strong>Al Azzani Crusher</strong> gives us direct control over
+            raw material quality, grading consistency and pricing — passing measurable savings and
+            reliability on to our clients across Abu Dhabi, Dubai, Al Ain and the wider UAE.
+          </p>
+          <!-- BULLET LIST — edit any item text -->
+          <ul class="check-list">
+            <li>Direct quarry partnership — no middleman pricing layers</li>
+            <li>Consistent grading and material quality control</li>
+            <li>Coordinated truck, tipper and bulk delivery fleet</li>
+            <li>Technical support for spec sheets and tender submissions</li>
+          </ul>
+          <div class="supply-cta-row">
+            <a href="#rfq" class="btn btn-primary">Get a Quote</a>
+            <!-- COMPANY PROFILE DOWNLOAD — wire up real PDF in script.js → CONFIG.companyProfileUrl -->
+            <!-- <a href="#" class="btn btn-outline" id="downloadProfileBtn">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3v10m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+              Download Company Profile (PDF)
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         INDUSTRIES SERVED  —  4-column grid of industry cards
+         ================================================================= -->
+    <section class="section" id="industries" aria-labelledby="industries-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Industries Served</span>
+          <h2 id="industries-heading">Trusted Across the Construction &amp; Industrial Value Chain</h2>
+          <p class="section-lead">
+            Our materials feed into projects spanning public infrastructure, private development and
+            heavy industrial manufacturing — wherever reliable, certified raw material supply is mission-critical.
+          </p>
+        </div>
+        <div class="industries-grid">
+          <!-- INDUSTRY 1 -->
+          <article class="industry-card">
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M3 18h18v3H3zM5 14l4-7 4 5 3-3 4 5H5z"/></svg>
+            </div>
+            <h3>Road Construction</h3>
+            <p>Sub-base, base course and asphalt aggregates supplied to municipal and highway projects across the Emirates.</p>
+          </article>
+          <!-- INDUSTRY 2 -->
+          <article class="industry-card">
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M3 21V9l9-6 9 6v12h-6v-7H9v7z"/></svg>
+            </div>
+            <h3>Infrastructure</h3>
+            <p>Bulk fill, drainage aggregates and engineered materials for utilities, drainage and large-scale earthworks.</p>
+          </article>
+          <!-- INDUSTRY 3 -->
+          <article class="industry-card">
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M4 4h16v4H4zm0 6h16v10H4zM8 14h8v2H8z"/></svg>
+            </div>
+            <h3>Ready-Mix Concrete</h3>
+            <p>Consistently graded washed sand and aggregates engineered to meet concrete mix design requirements.</p>
+          </article>
+          <!-- INDUSTRY 4 -->
+          <article class="industry-card">
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>
+            </div>
+            <h3>Industrial Manufacturing</h3>
+            <p>Calcium carbonate and limestone raw materials for paints, plastics, adhesives and process industries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PROJECTS / CLIENT PORTFOLIO  —  3 sample project cards
+         ================================================================= -->
+    <section class="section section-alt" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Projects &amp; Client Portfolio</span>
+          <h2 id="projects-heading">Approved References &amp; Supply Track Record</h2>
+          <p class="section-lead">
+            A snapshot of the supply programs and project categories where our materials have been
+            approved and deployed. Full reference lists available to verified procurement teams on request.
+          </p>
+        </div>
+        <div class="project-grid">
+          <!-- PROJECT 1 -->
+          <article class="project-card">
+            <div class="project-thumb" data-variant="1" role="img" aria-label="Highway construction project"></div>
+            <div class="project-body">
+              <span class="project-tag">Infrastructure</span>
+              <h3>Highway Sub-Base Supply Program</h3>
+              <p>Bulk supply of graded aggregates for highway sub-base and base course layers — delivered on schedule across multiple phases.</p>
+            </div>
+          </article>
+          <!-- PROJECT 2 -->
+          <article class="project-card">
+            <div class="project-thumb" data-variant="2" role="img" aria-label="Ready-mix concrete batch plant"></div>
+            <div class="project-body">
+              <span class="project-tag">Ready-Mix</span>
+              <h3>Concrete Aggregate Supply — Batch Plants</h3>
+              <p>Long-term supply of washed sand and coarse aggregates to ready-mix producers servicing commercial developments.</p>
+            </div>
+          </article>
+          <!-- PROJECT 3 -->
+          <article class="project-card">
+            <div class="project-thumb" data-variant="3" role="img" aria-label="Industrial manufacturing facility"></div>
+            <div class="project-body">
+              <span class="project-tag">Manufacturing</span>
+              <h3>Calcium Carbonate — Industrial Buyer</h3>
+              <p>High-purity calcium carbonate supplied to a regional manufacturer for use in industrial coatings and process lines.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         RFQ FORM  —  the main lead-generation form
+         Fields are validated in script.js. To add a field: add HTML here
+         + a validator function in script.js → validators object
+         ================================================================= -->
+    <section class="section rfq-section" id="rfq" aria-labelledby="rfq-heading">
+      <div class="container">
+        <div class="rfq-wrap">
+          <!-- LEFT: intro text + contact info -->
+          <div class="rfq-intro">
+            <span class="eyebrow eyebrow-light">Request a Quotation</span>
+            <h2 id="rfq-heading">Send Us Your Material Requirement</h2>
+            <p>
+              Tell us what you need, how much, and where it's going. Our team responds to RFQs
+              with quarry-direct pricing, delivery options and technical specifications — typically
+              within one business day.
+            </p>
+            <ul class="rfq-contact-list">
+              <li>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.6 1 1 0 01-.25 1z"/></svg>
+                <a href="tel:+971508844588">+971 50 8844 588</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4 4h16v16H4zm2 2v.5l8 5 8-5V6zm0 2.6V18h12V8.6l-6 3.75z"/></svg>
+                <a href="mailto:info@platinumgulfinvst.com">info@platinumgulfinvst.com</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+                Al Ain, Abu Dhabi, UAE
+              </li>
+            </ul>
+          </div>
+
+<!-- RIGHT: the actual form -->
+          <form class="rfq-form" id="rfqForm" novalidate>
+            <!-- MATERIAL DROPDOWN -->
+            <div class="form-row">
+              <label for="material">Material Required <span class="req">*</span></label>
+              <select id="material" name="material" required>
+                <option value="" disabled selected>Select material…</option>
+                <option value="Aggregates / Crushed Stone">Aggregates / Crushed Stone</option>
+                <option value="Gravel & Boulders">Gravel &amp; Boulders</option>
+                <option value="Limestone">Limestone</option>
+                <option value="Calcium Carbonate">Calcium Carbonate</option>
+                <option value="Building Materials">Building Materials</option>
+                <option value="New Material">New Material</option>
+              </select>
+              <small class="error-text" data-error-for="material"></small>
+            </div>
+
+            <!-- QUANTITY + LOCATION (side-by-side on desktop) -->
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="quantity">Quantity / Volume (metric tons) <span class="req">*</span></label>
+                <input type="number" id="quantity" name="quantity" min="1" step="0.01" placeholder="e.g. 500" required />
+                <small class="error-text" data-error-for="quantity"></small>
+              </div>
+              <div class="form-row">
+                <label for="location">Delivery Location <span class="req">*</span></label>
+                <select id="location" name="location" required>
+                  <option value="" disabled selected>Select location…</option>
+                  <option value="Abu Dhabi">Abu Dhabi</option>
+                  <option value="Dubai">Dubai</option>
+                  <option value="Al Ain">Al Ain</option>
+                  <option value="Northern Emirates">Northern Emirates</option>
+                  <option value="Other UAE">Other UAE</option>
+                </select>
+                <small class="error-text" data-error-for="location"></small>
+              </div>
+            </div>
+
+            <!-- NOTES (optional) -->
+            <div class="form-row">
+              <label for="notes">Additional Requirements / Notes</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Material size, specifications, delivery schedule, project name, etc."></textarea>
+            </div>
+
+            <!-- NAME + COMPANY -->
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="name">Contact Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Full name" required />
+                <small class="error-text" data-error-for="name"></small>
+              </div>
+              <div class="form-row">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Company / Organization" />
+              </div>
+            </div>
+
+            <!-- EMAIL + PHONE -->
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                <small class="error-text" data-error-for="email"></small>
+              </div>
+              <div class="form-row">
+                <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
+                <small class="error-text" data-error-for="phone"></small>
+              </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Submit Request via WhatsApp</button>
+            <!-- SUCCESS/ERROR MESSAGE -->
+            <p class="form-footnote" id="formSuccess" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================
+       FOOTER  —  contact info + nav links
+       ================================================================= -->
+  <footer class="site-footer" id="contact" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Contact &amp; Footer</h2>
+    <div class="container footer-grid">
+
+      <!-- COLUMN 1: brand + tagline -->
+      <div class="footer-col footer-brand">
+        <a href="#home" class="logo logo-light" aria-label="Platinum Gulf General Trading — Home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36">
+              <rect x="2" y="2" width="44" height="44" rx="6" fill="#1a1d23"/>
+              <path d="M14 34 L24 12 L34 34 Z" fill="#FF7A00"/>
+              <rect x="20" y="26" width="8" height="8" fill="#ffffff"/>
+            </svg>
+          </span>
+          <span class="logo-text">
+            <strong>PLATINUM GULF</strong>
+            <small>General Trading</small>
+          </span>
+        </a>
+        <p>Reliable Materials. Competitive Prices. Dependable Supply.</p>
+        <p class="footer-tagline">B2B supplier of construction materials, quarry products and industrial raw materials across the UAE — direct from Al Azzani Crusher.</p>
+      </div>
+
+      <!-- COLUMN 2: navigation links -->
+      <div class="footer-col">
+        <h3>Navigate</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#supply-network">Supply Network</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#rfq">Request a Quote</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 3: product links -->
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="#products">Aggregates &amp; Crushed Stones</a></li>
+          <li><a href="#products">Gravel &amp; Boulders</a></li>
+          <li><a href="#products">Limestone</a></li>
+          <li><a href="#products">Calcium Carbonate</a></li>
+          <li><a href="#products">Building Materials</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 4: contact details — pulled from letterhead -->
+      <div class="footer-col footer-contact">
+        <h3>Contact</h3>
+        <ul>
+          <li>
+            <span class="footer-label">Phone / WhatsApp</span>
+            <a href="tel:+971508844588">+971 50 8844 588</a>
+          </li>
+          <li>
+            <span class="footer-label">Email</span>
+            <a href="mailto:info@platinumgulfinvst.com">info@platinumgulfinvst.com</a>
+          </li>
+          <li>
+            <span class="footer-label">Website</span>
+            <a href="https://www.platinumgulfinvst.com" target="_blank" rel="noopener">www.platinumgulfinvst.com</a>
+          </li>
+          <li>
+            <span class="footer-label">Location</span>
+            <span>Al Ain, Abu Dhabi, UAE</span>
+          </li>
+          <li>
+            <span class="footer-label">P.O. Box</span>
+            <span>17740</span>
+          </li>
+          <li>
+            <span class="footer-label">Company No.</span>
+            <span>CN-5485780</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM — copyright + legal links -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; <span id="year"></span> P.Mohammed Abd-Ullah Al-Jadabi All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" id="privacyPolicyLink">Privacy Policy</a>
+          <!-- <a href="#" id="downloadProfileFooter">Download Company Profile</a> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================
+       FLOATING WHATSAPP BUTTON  —  bottom-right, on every page
+       To change the number: edit the wa.me URL below + CONFIG.whatsappNumber in script.js
+       ================================================================= -->
+  <a href="https://wa.me/971508844588?text=Hello%20Platinum%20Gulf%2C%20I%20have%20an%20inquiry%20about%20your%20materials."
+     class="whatsapp-float"
+     id="whatsappFloat"
+     target="_blank"
+     rel="noopener"
+     aria-label="Chat with Platinum Gulf on WhatsApp">
+    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+      <path fill="#ffffff" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.1-10 10.1zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/>
+    </svg>
+    <span class="whatsapp-label">WhatsApp Inquiry</span>
+  </a>
+
+  <!-- LOAD JS (defer = loads after HTML is parsed) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
