@@ -301,22 +301,38 @@ function initRfqForm() {
     });
   }
 
+/* =========================================================
+     CONFIG & PRODUCT DATASHEETS
+     ========================================================= */
+  const CONFIG = {
+    datasheetBaseUrl: 'Product-Catalog-pdf-files/',
+    datasheets: {
+      'Aggregates & Crushed Stones': 'Aggregates & Crushed Stones.pdf',
+      'Gravel & Boulders': 'Gravel & Boulders.pdf',
+      'Marble & Granite': 'Marble & Granite.pdf',
+      'RECREATION & SPORTS': 'Playground Equipment & Sports Flooring.pdf',
+      'OUTDOOR & URBAN SOLUTIONS': 'Park Furniture & Street Amenities.pdf',
+      'building-materials': 'Bespoke Expansion Joint Designs.pdf'
+
+    }
+  };
+
   /* =========================================================
      9. PRODUCT DATASHEETS
          Each "Download Datasheet" link in the products grid.
      ========================================================= */
   function initDatasheets() {
     const links = document.querySelectorAll('.product-datasheet');
-    
+
     if (links.length === 0) return;
 
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        const product = link.getAttribute('data-product');           // e.g. "building-materials"
-        const filename = CONFIG.datasheets[product];                // e.g. PDF filename from map
-        
+
+        const product = link.getAttribute('data-product');
+        const filename = CONFIG.datasheets && CONFIG.datasheets[product];
+
         if (filename && CONFIG.datasheetBaseUrl && CONFIG.datasheetBaseUrl !== '#') {
           const fullUrl = encodeURI(CONFIG.datasheetBaseUrl + filename);
           window.open(fullUrl, '_blank', 'noopener');
